@@ -7,71 +7,62 @@
 <meta name="robots" content="noindex,nofollow"/>
 <title>ORB v3 Paper Dashboard</title>
 <style>
-body{font-family:ui-sans-serif,system-ui,sans-serif;margin:16px;background:#0b1220;color:#e8eefc}
+body{font-family:ui-sans-serif,system-ui,sans-serif;margin:16px;background:#0b1220;color:#e8eefc;line-height:1.35}
 h1{font-size:1.35rem;margin:0 0 4px}
-h2{font-size:1.05rem;margin:20px 0 10px}
-.sub{color:#9fb0d0;margin-bottom:16px;font-size:.9rem}
-.cards{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+h2{font-size:1.05rem;margin:22px 0 10px}
+.sub{color:#9fb0d0;margin:0 0 16px;font-size:.9rem}
+.cards{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
 .card{background:#152238;border:1px solid #243552;border-radius:12px;padding:14px 16px;min-width:120px;flex:1 1 120px}
 .card .l{color:#9fb0d0;font-size:.75rem}
 .card .v{font-size:1.15rem;font-weight:600;margin-top:4px}
+.card .v.ok{color:#7dffa6}
+.card .v.bad{color:#ff8f8f}
 table{width:100%;border-collapse:collapse;background:#152238;border-radius:12px;overflow:hidden;font-size:.9rem}
-th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #243552}
-th{color:#9fb0d0;font-size:.75rem;font-weight:600}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #243552;vertical-align:top}
+th{color:#9fb0d0;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.02em}
+td.note{color:#9fb0d0;font-size:.82rem;max-width:280px}
 .muted{color:#9fb0d0;text-align:center}
 .err{color:#ff8f8f;margin:12px 0}
 .ok{color:#7dffa6}
-pre{background:#0b1220;padding:12px;border-radius:8px;overflow:auto;font-size:.75rem}
 a{color:#8ec7ff}
 @media (max-width:640px){
   body{margin:12px}
-  table{display:block;overflow-x:auto}
+  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  td.note{max-width:200px}
 }
 </style>
 </head>
 <body>
 <h1>ORB v3 — Paper positions</h1>
-<p class="sub">All times PT · Browser reloads every 60s · Last build: Tue Sep 8, 2026 10:13 PM PT</p>
+<p class="sub">All times PT · Page reloads every 60s · Last build: Tue Sep 8, 2026 10:35 PM PT</p>
 <p class='ok'>Connected to Alpaca paper</p>
 <div class="cards">
-  <div class="card"><div class="l">Equity</div><div class="v">50000.0</div></div>
-  <div class="card"><div class="l">Cash</div><div class="v">50000.0</div></div>
-  <div class="card"><div class="l">Buying power</div><div class="v">200000.0</div></div>
-  <div class="card"><div class="l">Status</div><div class="v">AccountStatus.ACTIVE</div></div>
+  <div class="card"><div class="l">Equity</div><div class="v">50,000.00</div></div>
+  <div class="card"><div class="l">Cash</div><div class="v">50,000.00</div></div>
+  <div class="card"><div class="l">Buying power</div><div class="v">200,000.00</div></div>
+  <div class="card"><div class="l">Account</div><div class="v">ACTIVE</div></div>
 </div>
 <h2>Open positions</h2>
 <table>
 <thead><tr><th>Symbol</th><th>Qty</th><th>Avg entry</th><th>Last</th><th>Mkt value</th><th>Unrealized P/L</th><th>Side</th></tr></thead>
 <tbody><tr><td colspan="7" class="muted">No open positions</td></tr></tbody>
 </table>
-<h2>Session state</h2>
-<pre>{
-  "date": "2026-09-09",
-  "halted_today": false,
-  "day_realized_R": 0.0,
-  "symbols": {
-    "NVDA": {
-      "traded": false,
-      "side": null,
-      "entry_order_id": null,
-      "status": "awaiting_today_or",
-      "orh": 233.71,
-      "orl": 227.63,
-      "mid": 230.67,
-      "note": "last_session_only (2026-09-08); today=2026-09-09 OR not ready \u2014 no live arm"
-    },
-    "TSLA": {
-      "traded": false,
-      "side": null,
-      "entry_order_id": null,
-      "status": "awaiting_today_or",
-      "orh": 364.7499,
-      "orl": 355.99,
-      "mid": 360.3699,
-      "note": "last_session_only (2026-09-08); today=2026-09-09 OR not ready \u2014 no live arm"
-    }
-  },
-  "updated_utc": "2026-09-09T04:58:44.032793+00:00"
-}</pre>
-<p class="sub">Broker live view: <a href="https://app.alpaca.markets/paper/dashboard/overview">Alpaca paper dashboard</a></p>
+<h2>Session</h2>
+
+<div class="cards">
+  <div class="card"><div class="l">Session date</div><div class="v">2026-09-09</div></div>
+  <div class="card"><div class="l">Day realized</div><div class="v">+0.00 R</div></div>
+  <div class="card"><div class="l">Daily halt</div><div class="v ok">No</div></div>
+  <div class="card"><div class="l">State updated</div><div class="v" style="font-size:.95rem">Tue Sep 8, 9:58 PM PT</div></div>
+</div>
+
+<table>
+<thead><tr>
+<th>Symbol</th><th>Status</th><th>Traded</th><th>Side</th>
+<th>OR high</th><th>OR low</th><th>OR mid (stop)</th><th>Note</th>
+</tr></thead>
+<tbody><tr><td><strong>NVDA</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>233.71</td><td>227.63</td><td>230.67</td><td class='note'>last_session_only (2026-09-08); today=2026-09-09 OR not ready · no live arm</td></tr><tr><td><strong>TSLA</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>364.75</td><td>355.99</td><td>360.37</td><td class='note'>last_session_only (2026-09-08); today=2026-09-09 OR not ready · no live arm</td></tr></tbody>
+</table>
+
+<p class="sub" style="margin-top:20px">Broker live view: <a href="https://app.alpaca.markets/paper/dashboard/overview">Alpaca paper dashboard</a></p>
 </body></html>
