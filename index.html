@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta http-equiv="refresh" content="60"/>
+<meta name="robots" content="noindex,nofollow"/>
 <title>ORB v3 Paper Dashboard</title>
 <style>
-body{font-family:ui-sans-serif,system-ui,sans-serif;margin:24px;background:#0b1220;color:#e8eefc}
-h1{font-size:1.4rem;margin:0 0 4px}
-.sub{color:#9fb0d0;margin-bottom:20px}
+body{font-family:ui-sans-serif,system-ui,sans-serif;margin:16px;background:#0b1220;color:#e8eefc}
+h1{font-size:1.35rem;margin:0 0 4px}
+h2{font-size:1.05rem;margin:20px 0 10px}
+.sub{color:#9fb0d0;margin-bottom:16px;font-size:.9rem}
 .cards{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
-.card{background:#152238;border:1px solid #243552;border-radius:12px;padding:14px 16px;min-width:140px}
+.card{background:#152238;border:1px solid #243552;border-radius:12px;padding:14px 16px;min-width:120px;flex:1 1 120px}
 .card .l{color:#9fb0d0;font-size:.75rem}
 .card .v{font-size:1.15rem;font-weight:600;margin-top:4px}
-table{width:100%;border-collapse:collapse;background:#152238;border-radius:12px;overflow:hidden}
+table{width:100%;border-collapse:collapse;background:#152238;border-radius:12px;overflow:hidden;font-size:.9rem}
 th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #243552}
 th{color:#9fb0d0;font-size:.75rem;font-weight:600}
 .muted{color:#9fb0d0;text-align:center}
 .err{color:#ff8f8f;margin:12px 0}
 .ok{color:#7dffa6}
-pre{background:#0b1220;padding:12px;border-radius:8px;overflow:auto;font-size:.8rem}
+pre{background:#0b1220;padding:12px;border-radius:8px;overflow:auto;font-size:.75rem}
+a{color:#8ec7ff}
+@media (max-width:640px){
+  body{margin:12px}
+  table{display:block;overflow-x:auto}
+}
 </style>
 </head>
 <body>
 <h1>ORB v3 — Paper positions</h1>
-<p class="sub">All times PT · Auto-refreshes every 60s in browser · Last build: Tue Sep 8, 2026 10:01 PM PT</p>
+<p class="sub">All times PT · Browser reloads every 60s · Last build: Tue Sep 8, 2026 10:13 PM PT</p>
 <p class='ok'>Connected to Alpaca paper</p>
 <div class="cards">
   <div class="card"><div class="l">Equity</div><div class="v">50000.0</div></div>
@@ -66,5 +73,5 @@ pre{background:#0b1220;padding:12px;border-radius:8px;overflow:auto;font-size:.8
   },
   "updated_utc": "2026-09-09T04:58:44.032793+00:00"
 }</pre>
-<p class="sub">Broker live view: <a href="https://app.alpaca.markets/paper/dashboard/overview" style="color:#8ec7ff">Alpaca paper dashboard</a></p>
+<p class="sub">Broker live view: <a href="https://app.alpaca.markets/paper/dashboard/overview">Alpaca paper dashboard</a></p>
 </body></html>
