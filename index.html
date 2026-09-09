@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8"/>
+<meta http-equiv="refresh" content="60"/>
+<title>ORB v3 Paper Dashboard</title>
+<style>
+body{font-family:ui-sans-serif,system-ui,sans-serif;margin:24px;background:#0b1220;color:#e8eefc}
+h1{font-size:1.4rem;margin:0 0 4px}
+.sub{color:#9fb0d0;margin-bottom:20px}
+.cards{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.card{background:#152238;border:1px solid #243552;border-radius:12px;padding:14px 16px;min-width:140px}
+.card .l{color:#9fb0d0;font-size:.75rem}
+.card .v{font-size:1.15rem;font-weight:600;margin-top:4px}
+table{width:100%;border-collapse:collapse;background:#152238;border-radius:12px;overflow:hidden}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #243552}
+th{color:#9fb0d0;font-size:.75rem;font-weight:600}
+.muted{color:#9fb0d0;text-align:center}
+.err{color:#ff8f8f;margin:12px 0}
+.ok{color:#7dffa6}
+pre{background:#0b1220;padding:12px;border-radius:8px;overflow:auto;font-size:.8rem}
+</style>
+</head>
+<body>
+<h1>ORB v3 — Paper positions</h1>
+<p class="sub">All times PT · Auto-refreshes every 60s in browser · Last build: Tue Sep 8, 2026 10:01 PM PT</p>
+<p class='ok'>Connected to Alpaca paper</p>
+<div class="cards">
+  <div class="card"><div class="l">Equity</div><div class="v">50000.0</div></div>
+  <div class="card"><div class="l">Cash</div><div class="v">50000.0</div></div>
+  <div class="card"><div class="l">Buying power</div><div class="v">200000.0</div></div>
+  <div class="card"><div class="l">Status</div><div class="v">AccountStatus.ACTIVE</div></div>
+</div>
+<h2>Open positions</h2>
+<table>
+<thead><tr><th>Symbol</th><th>Qty</th><th>Avg entry</th><th>Last</th><th>Mkt value</th><th>Unrealized P/L</th><th>Side</th></tr></thead>
+<tbody><tr><td colspan="7" class="muted">No open positions</td></tr></tbody>
+</table>
+<h2>Session state</h2>
+<pre>{
+  "date": "2026-09-09",
+  "halted_today": false,
+  "day_realized_R": 0.0,
+  "symbols": {
+    "NVDA": {
+      "traded": false,
+      "side": null,
+      "entry_order_id": null,
+      "status": "awaiting_today_or",
+      "orh": 233.71,
+      "orl": 227.63,
+      "mid": 230.67,
+      "note": "last_session_only (2026-09-08); today=2026-09-09 OR not ready \u2014 no live arm"
+    },
+    "TSLA": {
+      "traded": false,
+      "side": null,
+      "entry_order_id": null,
+      "status": "awaiting_today_or",
+      "orh": 364.7499,
+      "orl": 355.99,
+      "mid": 360.3699,
+      "note": "last_session_only (2026-09-08); today=2026-09-09 OR not ready \u2014 no live arm"
+    }
+  },
+  "updated_utc": "2026-09-09T04:58:44.032793+00:00"
+}</pre>
+<p class="sub">Broker live view: <a href="https://app.alpaca.markets/paper/dashboard/overview" style="color:#8ec7ff">Alpaca paper dashboard</a></p>
+</body></html>
