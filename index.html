@@ -10,6 +10,7 @@
 body{font-family:ui-sans-serif,system-ui,sans-serif;margin:16px;background:#0b1220;color:#e8eefc;line-height:1.35}
 h1{font-size:1.35rem;margin:0 0 4px}
 h2{font-size:1.05rem;margin:22px 0 10px}
+h3{font-size:.95rem;margin:16px 0 8px;color:#9fb0d0}
 .sub{color:#9fb0d0;margin:0 0 16px;font-size:.9rem}
 .cards{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
 .card{background:#152238;border:1px solid #243552;border-radius:12px;padding:14px 16px;min-width:120px;flex:1 1 120px}
@@ -17,13 +18,16 @@ h2{font-size:1.05rem;margin:22px 0 10px}
 .card .v{font-size:1.15rem;font-weight:600;margin-top:4px}
 .card .v.ok{color:#7dffa6}
 .card .v.bad{color:#ff8f8f}
+.card .v.warn{color:#ffd27d}
 table{width:100%;border-collapse:collapse;background:#152238;border-radius:12px;overflow:hidden;font-size:.9rem}
 th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #243552;vertical-align:top}
 th{color:#9fb0d0;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.02em}
 td.note{color:#9fb0d0;font-size:.82rem;max-width:280px}
+td.ok,.ok{color:#7dffa6}
+td.bad,.bad{color:#ff8f8f}
 .muted{color:#9fb0d0;text-align:center}
 .err{color:#ff8f8f;margin:12px 0}
-.ok{color:#7dffa6}
+.warn-banner{background:#2a2210;border:1px solid #5a4a20;color:#ffd27d;border-radius:10px;padding:10px 12px;margin:0 0 12px;font-size:.9rem}
 a{color:#8ec7ff}
 @media (max-width:640px){
   body{margin:12px}
@@ -37,23 +41,53 @@ a{color:#8ec7ff}
 <p class="sub">All times PT · Page reloads every 60s · Last build: Mon Sep 14, 2026 1:09 PM PT</p>
 <p class='ok'>Connected to Alpaca paper</p>
 <div class="cards">
-  <div class="card"><div class="l">Equity</div><div class="v">49,764.05</div></div>
+  <div class="card"><div class="l">Equity</div><div class="v">49,761.71</div></div>
   <div class="card"><div class="l">Cash</div><div class="v">10.48</div></div>
-  <div class="card"><div class="l">Buying power</div><div class="v">139,351.91</div></div>
+  <div class="card"><div class="l">Buying power</div><div class="v">139,345.37</div></div>
   <div class="card"><div class="l">Account</div><div class="v">ACTIVE</div></div>
+  <div class="card"><div class="l">Day booked P/L ($)</div><div class="v warn">None yet</div></div>
+  <div class="card"><div class="l">Day realized R</div><div class="v">+0.00 R</div></div>
 </div>
 <h2>Open positions</h2>
 <table>
 <thead><tr><th>Symbol</th><th>Qty</th><th>Avg entry</th><th>Last</th><th>Mkt value</th><th>Unrealized P/L</th><th>Side</th></tr></thead>
-<tbody><tr><td><strong>NVDA</strong></td><td>236.0</td><td>211.82</td><td>210.82</td><td>49,753.57</td><td>-235.95</td><td>PositionSide.LONG</td></tr></tbody>
+<tbody><tr><td><strong>NVDA</strong></td><td>236.0</td><td>211.82</td><td>210.81</td><td>49,751.23</td><td class='bad'>-238.29</td><td>LONG</td></tr></tbody>
 </table>
+<h2>Open orders</h2>
+
+<table>
+<thead><tr>
+<th>Symbol</th><th>Side</th><th>Qty</th><th>Filled</th><th>Type</th>
+<th>Status</th><th>Limit</th><th>Order id</th><th>Submitted</th>
+</tr></thead>
+<tbody><tr><td><strong>NVDA</strong></td><td>SELL</td><td>118</td><td>0</td><td>MARKET</td><td>ACCEPTED</td><td>—</td><td class='note' title='29f9f0f6-7ee7-46e6-b4a3-bbe3676bd641'>29f9f0f6…</td><td>1:01:24 PM PT</td></tr></tbody>
+</table>
+
+<h2>Today's fills / booked P/L</h2>
+
+<div class="cards">
+  <div class="card"><div class="l">Day booked P/L ($)</div><div class="v warn">None yet</div>
+  <div class="sub" style="margin:4px 0 0">No closed lots today</div></div>
+  <div class="card"><div class="l">Today's fills</div><div class="v">1</div></div>
+  <div class="card"><div class="l">Closed lots (FIFO)</div><div class="v">0</div></div>
+</div>
+<p class="warn-banner">Pending half-exit: market SELL is accepted but not filled yet — no booked P/L until the sell fills at next RTH open.</p>
+<p class="sub">No sell fills today — no booked (realized) P/L yet. Open buys are inventory; pending half-exit will book when the sell fills.</p>
+
+<table>
+<thead><tr>
+<th>Time (PT)</th><th>Symbol</th><th>Side</th><th>Qty</th><th>Price</th><th>Order</th>
+</tr></thead>
+<tbody><tr><td>9:11:33 AM PT</td><td><strong>NVDA</strong></td><td>BUY</td><td>236.0</td><td>211.82</td><td class='note'>455f2ce4…</td></tr></tbody>
+</table>
+
 <h2>Session</h2>
 
 <div class="cards">
   <div class="card"><div class="l">Session date</div><div class="v">2026-09-14</div></div>
-  <div class="card"><div class="l">Day realized</div><div class="v">+0.00 R</div></div>
+  <div class="card"><div class="l">Day realized R</div><div class="v">+0.00 R</div></div>
   <div class="card"><div class="l">Daily halt</div><div class="v ok">No</div></div>
-  <div class="card"><div class="l">State updated</div><div class="v" style="font-size:.95rem">Mon Sep 14, 12:32 PM PT</div></div>
+  <div class="card"><div class="l">State updated</div><div class="v" style="font-size:.95rem">Mon Sep 14, 1:09 PM PT</div></div>
 </div>
 
 <table>
@@ -61,7 +95,7 @@ a{color:#8ec7ff}
 <th>Symbol</th><th>Status</th><th>Traded</th><th>Side</th>
 <th>OR high</th><th>OR low</th><th>OR mid (stop)</th><th>Note</th>
 </tr></thead>
-<tbody><tr><td><strong>NVDA</strong></td><td>entered</td><td>Yes</td><td>long</td><td>211.70</td><td>208.93</td><td>210.31</td><td class='note'>submitted bracket 455f2ce4-2598-426c-97eb-7e7bff0bedb2</td></tr><tr><td><strong>TSLA</strong></td><td>skip invalid or</td><td>No</td><td>—</td><td>367.73</td><td>357.04</td><td>362.38</td><td class='note'>skip invalid OR (range_too_large)</td></tr></tbody>
+<tbody><tr><td><strong>NVDA</strong></td><td>entered</td><td>Yes</td><td>long</td><td>211.70</td><td>208.93</td><td>210.31</td><td class='note'>flatten</td></tr><tr><td><strong>TSLA</strong></td><td>skip invalid or</td><td>No</td><td>—</td><td>367.73</td><td>357.04</td><td>362.38</td><td class='note'>flatten</td></tr></tbody>
 </table>
 
 <p class="sub" style="margin-top:20px">Broker live view: <a href="https://app.alpaca.markets/paper/dashboard/overview">Alpaca paper dashboard</a></p>
