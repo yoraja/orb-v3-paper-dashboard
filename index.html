@@ -7,53 +7,108 @@
 <meta name="robots" content="noindex,nofollow"/>
 <title>ORB v3 Paper Dashboard</title>
 <style>
-body{font-family:ui-sans-serif,system-ui,sans-serif;margin:16px;background:#0b1220;color:#e8eefc;line-height:1.35}
-h1{font-size:1.35rem;margin:0 0 4px}
-h2{font-size:1.05rem;margin:22px 0 10px}
-h3{font-size:.95rem;margin:16px 0 8px;color:#9fb0d0}
-.sub{color:#9fb0d0;margin:0 0 16px;font-size:.9rem}
+:root {
+  --bg:#0b1220; --card:#152238; --border:#243552; --text:#e8eefc; --muted:#9fb0d0;
+  --ok:#7dffa6; --bad:#ff8f8f; --warn:#ffd27d; --accent:#8ec7ff;
+}
+body{font-family:ui-sans-serif,system-ui,sans-serif;margin:0;background:var(--bg);color:var(--text);line-height:1.35}
+.wrap{max-width:1200px;margin:0 auto;padding:16px 20px 40px}
+h1{font-size:1.45rem;margin:0 0 4px}
+h2{font-size:1.1rem;margin:26px 0 10px;border-bottom:1px solid var(--border);padding-bottom:6px}
+h3{font-size:.95rem;margin:16px 0 8px;color:var(--muted)}
+.sub{color:var(--muted);margin:0 0 16px;font-size:.9rem}
 .cards{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
-.card{background:#152238;border:1px solid #243552;border-radius:12px;padding:14px 16px;min-width:120px;flex:1 1 120px}
-.card .l{color:#9fb0d0;font-size:.75rem}
-.card .v{font-size:1.15rem;font-weight:600;margin-top:4px}
-.card .v.ok{color:#7dffa6}
-.card .v.bad{color:#ff8f8f}
-.card .v.warn{color:#ffd27d}
-table{width:100%;border-collapse:collapse;background:#152238;border-radius:12px;overflow:hidden;font-size:.9rem}
-th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #243552;vertical-align:top}
-th{color:#9fb0d0;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.02em}
-td.note{color:#9fb0d0;font-size:.82rem;max-width:280px}
-td.ok,.ok{color:#7dffa6}
-td.bad,.bad{color:#ff8f8f}
-.muted{color:#9fb0d0;text-align:center}
-.err{color:#ff8f8f;margin:12px 0}
-.warn-banner{background:#2a2210;border:1px solid #5a4a20;color:#ffd27d;border-radius:10px;padding:10px 12px;margin:0 0 12px;font-size:.9rem}
-a{color:#8ec7ff}
-@media (max-width:640px){
-  body{margin:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;min-width:130px;flex:1 1 130px}
+.card .l{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.03em}
+.card .v{font-size:1.2rem;font-weight:600;margin-top:4px}
+.card .v.ok,.ok{color:var(--ok)}
+.card .v.bad,.bad{color:var(--bad)}
+.card .v.warn,.warn{color:var(--warn)}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:.9rem;margin-bottom:8px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+th{color:var(--muted);font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.02em}
+td.note{color:var(--muted);font-size:.82rem;max-width:280px}
+td.ok{color:var(--ok)} td.bad{color:var(--bad)}
+.muted{color:var(--muted);text-align:center}
+.err{color:var(--bad);margin:12px 0}
+.warn-banner{background:#2a2210;border:1px solid #5a4a20;color:var(--warn);border-radius:10px;padding:10px 12px;margin:0 0 12px;font-size:.9rem}
+a{color:var(--accent)}
+.tag{display:inline-block;background:#1e2f4a;color:var(--muted);font-size:.7rem;padding:1px 6px;border-radius:6px;margin-left:4px}
+.date-block{margin:14px 0 18px}
+.date-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 8px;flex-wrap:wrap}
+.date-label{font-weight:600;font-size:1rem}
+.date-pl{font-size:.9rem;color:var(--muted)}
+.date-pl.ok{color:var(--ok)} .date-pl.bad{color:var(--bad)}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0 8px}
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+.chart-title{font-size:.85rem;color:var(--muted);margin-bottom:6px;font-weight:600}
+.chart-lbl{fill:var(--muted);font-size:10px}
+.chart-empty{padding:24px;text-align:center}
+.badge{display:inline-block;background:#1a3a28;color:var(--ok);border:1px solid #2a5a40;border-radius:999px;padding:2px 10px;font-size:.75rem;margin-left:8px}
+@media (max-width:800px){
+  .charts{grid-template-columns:1fr}
+  .wrap{padding:12px}
   table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
   td.note{max-width:200px}
 }
 </style>
 </head>
 <body>
-<h1>ORB v3 — Paper positions</h1>
-<p class="sub">All times PT · Page reloads every 60s · Last build: Wed Sep 23, 2026 1:09 PM PT</p>
+<div class="wrap">
+<h1>ORB v3 — Paper Dashboard <span class="badge">PAPER</span></h1>
+<p class="sub">Alpaca paper · All times PT · Auto-refresh 60s · Last build: Wed Sep 23, 2026 3:39 PM PT · Layout inspired by <a href="https://niratrades.streamlit.app/">niratrades</a></p>
 <p class='ok'>Connected to Alpaca paper</p>
+
 <div class="cards">
-  <div class="card"><div class="l">Equity</div><div class="v">49,993.91</div></div>
-  <div class="card"><div class="l">Cash</div><div class="v">49,993.91</div></div>
-  <div class="card"><div class="l">Buying power</div><div class="v">199,975.64</div></div>
-  <div class="card"><div class="l">Account</div><div class="v">ACTIVE</div></div>
-  <div class="card"><div class="l">Day booked P/L ($)</div><div class="v warn">None yet</div></div>
-  <div class="card"><div class="l">Day realized R</div><div class="v">+0.00 R</div></div>
+  <div class="card"><div class="l">Portfolio Equity</div><div class="v">49,993.91</div></div>
+  <div class="card"><div class="l">Cash Available</div><div class="v">49,993.91</div></div>
+  <div class="card"><div class="l">Buying Power</div><div class="v">199,975.64</div></div>
+  <div class="card"><div class="l">Day Booked P/L</div><div class="v ok">$+69.43</div></div>
+  <div class="card"><div class="l">Unrealized P/L</div><div class="v warn">+0.00</div></div>
+  <div class="card"><div class="l">Open Positions</div><div class="v">0</div></div>
 </div>
-<h2>Open positions</h2>
+<div class="cards">
+  <div class="card"><div class="l">Account</div><div class="v">ACTIVE</div></div>
+  <div class="card"><div class="l">Day Realized R</div><div class="v">+0.00 R</div></div>
+  <div class="card"><div class="l">Win Rate (closed)</div><div class="v">60% (3W/2L)</div></div>
+  <div class="card"><div class="l">Closed Trades</div><div class="v">5</div></div>
+  <div class="card"><div class="l">Total Realized $</div><div class="v bad">$-6.09</div></div>
+  <div class="card"><div class="l">Open Orders</div><div class="v">0</div></div>
+</div>
+
+<h2>Performance charts</h2>
+<div class="charts">
+
+<div class="chart-card">
+  <div class="chart-title">Booked P/L by day (PT)</div>
+  <svg viewBox="0 0 640 220" width="100%" height="220" role="img" aria-label="Booked P/L by day (PT)">
+    <line x1="48" y1="106.0" x2="624" y2="106.0" stroke="#3a4a66" stroke-width="1"/><text x="8" y="38" class="chart-lbl">$76</text><text x="8" y="184" class="chart-lbl">$-76</text>
+    <rect x="48.0" y="106.0" width="286.0" height="78.0" fill="#d62728" rx="2"/><rect x="338.0" y="34.3" width="286.0" height="71.7" fill="#2ca02c" rx="2"/>
+    <text x="191.0" y="210" text-anchor="middle" class="chart-lbl">09-14</text><text x="481.0" y="210" text-anchor="middle" class="chart-lbl">09-23</text>
+  </svg>
+</div>
+
+
+<div class="chart-card">
+  <div class="chart-title">Cumulative booked P/L <span class="sub">last $-6.09</span></div>
+  <svg viewBox="0 0 640 220" width="100%" height="220" role="img" aria-label="Cumulative booked P/L">
+    <polygon points="56.0,184 56.0,184.0 624.0,28.0 624.0,184" fill="#7dffa6" opacity="0.15"/>
+    <polyline points="56.0,184.0 624.0,28.0" fill="none" stroke="#7dffa6" stroke-width="2.5"/>
+    <text x="8" y="38" class="chart-lbl">$-6</text>
+    <text x="8" y="184" class="chart-lbl">$-76</text>
+    <text x="56.0" y="210" text-anchor="middle" class="chart-lbl">09-14</text><text x="624.0" y="210" text-anchor="middle" class="chart-lbl">09-23</text>
+  </svg>
+</div>
+
+</div>
+
+<h2>Open Positions</h2>
 <table>
 <thead><tr><th>Symbol</th><th>Qty</th><th>Avg entry</th><th>Last</th><th>Mkt value</th><th>Unrealized P/L</th><th>Side</th></tr></thead>
 <tbody><tr><td colspan="7" class="muted">No open positions</td></tr></tbody>
 </table>
-<h2>Open orders</h2>
+
+<h2>Open Orders</h2>
 
 <table>
 <thead><tr>
@@ -63,25 +118,53 @@ a{color:#8ec7ff}
 <tbody><tr><td colspan="9" class="muted">No open orders</td></tr></tbody>
 </table>
 
-<h2>Today's fills / booked P/L</h2>
+
+<h2>Closed Positions</h2>
 
 <div class="cards">
-  <div class="card"><div class="l">Day booked P/L ($)</div><div class="v warn">None yet</div>
-  <div class="sub" style="margin:4px 0 0">No closed lots today</div></div>
-  <div class="card"><div class="l">Today's fills</div><div class="v">15</div></div>
-  <div class="card"><div class="l">Closed lots (FIFO)</div><div class="v">0</div></div>
+  <div class="card"><div class="l">Day booked P/L ($)</div><div class="v ok">$+69.43</div>
+  <div class="sub" style="margin:4px 0 0">Today booked $</div></div>
+  <div class="card"><div class="l">Closed trades (grouped)</div><div class="v">5</div>
+  <div class="sub" style="margin:4px 0 0">16 FIFO lots · 21 fills</div></div>
+  <div class="card"><div class="l">Total realized P/L</div><div class="v bad">$-6.09</div></div>
+  <div class="card"><div class="l">Win rate</div><div class="v">60% (3W / 2L)</div></div>
+  <div class="card"><div class="l">Avg win / loss</div><div class="v" style="font-size:.95rem">+41.21 / -64.86</div></div>
+  <div class="card"><div class="l">Best / worst</div><div class="v" style="font-size:.9rem">AAPL $+99.90 · NVDA $-75.52</div></div>
 </div>
 
-<p class="sub">No sell fills today — no booked (realized) P/L yet. Open buys are inventory; pending half-exit will book when the sell fills.</p>
+<p class="sub">FIFO-matched 16 lot chunk(s) from 21 fill(s); grouped by PT date + symbol below (partial fills rolled up).</p>
+<p class="sub">Lots grouped by PT calendar date + symbol (partial fills rolled into one row per ticker/day). Inspired by niratrades.streamlit.app closed-position rollup.</p>
 
-<table>
-<thead><tr>
-<th>Time (PT)</th><th>Symbol</th><th>Side</th><th>Qty</th><th>Price</th><th>Order</th>
-</tr></thead>
-<tbody><tr><td>10:23:13 AM PT</td><td><strong>NVDA</strong></td><td>SELL_SHORT</td><td>2.0</td><td>224.60</td><td class='note'>7bb58cf1…</td></tr><tr><td>10:23:13 AM PT</td><td><strong>AAPL</strong></td><td>SELL_SHORT</td><td>74.0</td><td>337.57</td><td class='note'>807f00d8…</td></tr><tr><td>10:23:14 AM PT</td><td><strong>AVGO</strong></td><td>SELL_SHORT</td><td>58.0</td><td>354.99</td><td class='note'>d70574eb…</td></tr><tr><td>10:23:14 AM PT</td><td><strong>WMT</strong></td><td>SELL_SHORT</td><td>74.0</td><td>110.47</td><td class='note'>146901f2…</td></tr><tr><td>10:23:14 AM PT</td><td><strong>WMT</strong></td><td>SELL_SHORT</td><td>124.0</td><td>110.47</td><td class='note'>146901f2…</td></tr><tr><td>10:23:14 AM PT</td><td><strong>NVDA</strong></td><td>SELL_SHORT</td><td>82.0</td><td>224.58</td><td class='note'>7bb58cf1…</td></tr><tr><td>10:23:14 AM PT</td><td><strong>AVGO</strong></td><td>SELL_SHORT</td><td>12.0</td><td>354.99</td><td class='note'>d70574eb…</td></tr><tr><td>10:23:15 AM PT</td><td><strong>WMT</strong></td><td>SELL_SHORT</td><td>28.0</td><td>110.47</td><td class='note'>146901f2…</td></tr><tr><td>10:23:15 AM PT</td><td><strong>NVDA</strong></td><td>SELL_SHORT</td><td>8.0</td><td>224.58</td><td class='note'>7bb58cf1…</td></tr><tr><td>10:23:16 AM PT</td><td><strong>NVDA</strong></td><td>SELL_SHORT</td><td>18.0</td><td>224.58</td><td class='note'>7bb58cf1…</td></tr><tr><td>12:50:40 PM PT</td><td><strong>WMT</strong></td><td>BUY</td><td>226.0</td><td>110.43</td><td class='note'>bb8adb3e…</td></tr><tr><td>12:50:41 PM PT</td><td><strong>AAPL</strong></td><td>BUY</td><td>74.0</td><td>336.22</td><td class='note'>47a550ec…</td></tr><tr><td>12:50:41 PM PT</td><td><strong>AVGO</strong></td><td>BUY</td><td>70.0</td><td>354.78</td><td class='note'>681792c7…</td></tr><tr><td>12:50:41 PM PT</td><td><strong>NVDA</strong></td><td>BUY</td><td>35.0</td><td>225.08</td><td class='note'>74944911…</td></tr><tr><td>12:50:41 PM PT</td><td><strong>NVDA</strong></td><td>BUY</td><td>75.0</td><td>225.07</td><td class='note'>74944911…</td></tr></tbody>
-</table>
+<div class="date-block">
+  <div class="date-head">
+    <span class="date-label">Wed Sep 23, 2026</span>
+    <span class="date-pl ok">Day P/L $+69.43 · 4 symbol(s)</span>
+  </div>
+  <table>
+  <thead><tr>
+  <th>Ticker</th><th>Side</th><th>Qty</th><th>Entry avg</th><th>Exit avg</th>
+  <th>Realized $</th><th>P/L %</th><th>Result</th><th>Hold / fills</th>
+  </tr></thead>
+  <tbody><tr><td><strong>AAPL</strong> 🟢▲</td><td>SHORT</td><td>74</td><td>337.57</td><td>336.22</td><td class='ok'>+99.90</td><td class='ok'>+0.40%</td><td>Win</td><td class='note'>2.5h · 2 orders</td></tr><tr><td><strong>AVGO</strong> 🟢▲ <span class='tag'>📊 2× lots</span></td><td>SHORT</td><td>70</td><td>354.99</td><td>354.78</td><td class='ok'>+14.70</td><td class='ok'>+0.06%</td><td>Win</td><td class='note'>2.5h · 2 orders</td></tr><tr><td><strong>NVDA</strong> 🔴▼ <span class='tag'>📊 5× lots</span></td><td>SHORT</td><td>110</td><td>224.58</td><td>225.07</td><td class='bad'>-54.21</td><td class='bad'>-0.22%</td><td>Loss</td><td class='note'>2.5h · 2 orders</td></tr><tr><td><strong>WMT</strong> 🟢▲ <span class='tag'>📊 3× lots</span></td><td>SHORT</td><td>226</td><td>110.47</td><td>110.43</td><td class='ok'>+9.04</td><td class='ok'>+0.04%</td><td>Win</td><td class='note'>2.5h · 2 orders</td></tr></tbody>
+  </table>
+</div>
 
-<h2>Session</h2>
+<div class="date-block">
+  <div class="date-head">
+    <span class="date-label">Mon Sep 14, 2026</span>
+    <span class="date-pl bad">Day P/L $-75.52 · 1 symbol(s)</span>
+  </div>
+  <table>
+  <thead><tr>
+  <th>Ticker</th><th>Side</th><th>Qty</th><th>Entry avg</th><th>Exit avg</th>
+  <th>Realized $</th><th>P/L %</th><th>Result</th><th>Hold / fills</th>
+  </tr></thead>
+  <tbody><tr><td><strong>NVDA</strong> 🔴▼ <span class='tag'>📊 5× lots</span></td><td>LONG</td><td>236</td><td>211.82</td><td>211.50</td><td class='bad'>-75.52</td><td class='bad'>-0.15%</td><td>Loss</td><td class='note'>4.3h · 2 orders</td></tr></tbody>
+  </table>
+</div>
+
+
+<h2>Session (14-symbol ORB universe)</h2>
 
 <div class="cards">
   <div class="card"><div class="l">Session date</div><div class="v">2026-09-23</div></div>
@@ -99,5 +182,9 @@ a{color:#8ec7ff}
 <tbody><tr><td><strong>NVDA</strong></td><td>flattened</td><td>Yes</td><td>short</td><td>228.95</td><td>225.02</td><td>226.99</td><td class='note'>eod flatten</td></tr><tr><td><strong>TSLA</strong></td><td>flattened</td><td>No</td><td>—</td><td>386.70</td><td>378.78</td><td>382.74</td><td class='note'>eod flatten</td></tr><tr><td><strong>INTC</strong></td><td>flattened</td><td>No</td><td>—</td><td>124.25</td><td>119.63</td><td>121.94</td><td class='note'>eod flatten</td></tr><tr><td><strong>PLTR</strong></td><td>flattened</td><td>No</td><td>—</td><td>193.37</td><td>182.95</td><td>188.16</td><td class='note'>eod flatten</td></tr><tr><td><strong>AMD</strong></td><td>flattened</td><td>No</td><td>—</td><td>624.69</td><td>608.09</td><td>616.39</td><td class='note'>eod flatten</td></tr><tr><td><strong>AAPL</strong></td><td>flattened</td><td>Yes</td><td>short</td><td>341.80</td><td>336.41</td><td>339.11</td><td class='note'>eod flatten</td></tr><tr><td><strong>AMZN</strong></td><td>flattened</td><td>No</td><td>—</td><td>253.81</td><td>248.19</td><td>251.00</td><td class='note'>eod flatten</td></tr><tr><td><strong>GOOGL</strong></td><td>flattened</td><td>No</td><td>—</td><td>350.00</td><td>340.13</td><td>345.07</td><td class='note'>eod flatten</td></tr><tr><td><strong>MU</strong></td><td>flattened</td><td>No</td><td>—</td><td>1,105.50</td><td>1,070.52</td><td>1,088.01</td><td class='note'>eod flatten</td></tr><tr><td><strong>MSFT</strong></td><td>flattened</td><td>No</td><td>—</td><td>509.44</td><td>495.90</td><td>502.67</td><td class='note'>eod flatten</td></tr><tr><td><strong>META</strong></td><td>flattened</td><td>No</td><td>—</td><td>763.90</td><td>739.51</td><td>751.71</td><td class='note'>eod flatten</td></tr><tr><td><strong>AVGO</strong></td><td>flattened</td><td>Yes</td><td>short</td><td>362.90</td><td>355.15</td><td>359.03</td><td class='note'>eod flatten</td></tr><tr><td><strong>WMT</strong></td><td>flattened</td><td>Yes</td><td>short</td><td>111.23</td><td>110.10</td><td>110.67</td><td class='note'>eod flatten</td></tr><tr><td><strong>CSCO</strong></td><td>flattened</td><td>No</td><td>—</td><td>106.87</td><td>105.95</td><td>106.41</td><td class='note'>eod flatten</td></tr></tbody>
 </table>
 
-<p class="sub" style="margin-top:20px">Broker live view: <a href="https://app.alpaca.markets/paper/dashboard/overview">Alpaca paper dashboard</a></p>
+
+<p class="sub" style="margin-top:24px">Broker live view: <a href="https://app.alpaca.markets/paper/dashboard/overview">Alpaca paper</a>
+ · Source layout: <a href="https://github.com/yoraja/nira_live_ai_trades">nira_live_ai_trades</a> / <a href="https://niratrades.streamlit.app/">niratrades.streamlit.app</a>
+ · This page: <a href="https://yoraja.github.io/orb-v3-paper-dashboard/">https://yoraja.github.io/orb-v3-paper-dashboard/</a></p>
+</div>
 </body></html>
