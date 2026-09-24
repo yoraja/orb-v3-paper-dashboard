@@ -56,16 +56,16 @@ a{color:var(--accent)}
 <body>
 <div class="wrap">
 <h1>ORB v3 — Paper Dashboard <span class="badge">PAPER</span></h1>
-<p class="sub">Alpaca paper · All times PT · Auto-refresh 60s · Last build: Thu Sep 24, 2026 7:34 AM PT · Layout inspired by <a href="https://niratrades.streamlit.app/">niratrades</a></p>
+<p class="sub">Alpaca paper · All times PT · Auto-refresh 60s · Last build: Thu Sep 24, 2026 7:36 AM PT · Layout inspired by <a href="https://niratrades.streamlit.app/">niratrades</a></p>
 <p class='ok'>Connected to Alpaca paper</p>
 
 <div class="cards">
-  <div class="card"><div class="l">Portfolio Equity</div><div class="v">49,993.91</div></div>
-  <div class="card"><div class="l">Cash Available</div><div class="v">49,993.91</div></div>
-  <div class="card"><div class="l">Buying Power</div><div class="v">199,975.64</div></div>
+  <div class="card"><div class="l">Portfolio Equity</div><div class="v">49,989.33</div></div>
+  <div class="card"><div class="l">Cash Available</div><div class="v">74,941.17</div></div>
+  <div class="card"><div class="l">Buying Power</div><div class="v">170,015.11</div></div>
   <div class="card"><div class="l">Day Booked P/L</div><div class="v warn">None yet</div></div>
-  <div class="card"><div class="l">Unrealized P/L</div><div class="v warn">+0.00</div></div>
-  <div class="card"><div class="l">Open Positions</div><div class="v">0</div></div>
+  <div class="card"><div class="l">Unrealized P/L</div><div class="v bad">-4.58</div></div>
+  <div class="card"><div class="l">Open Positions</div><div class="v">1</div></div>
 </div>
 <div class="cards">
   <div class="card"><div class="l">Account</div><div class="v">ACTIVE</div></div>
@@ -73,7 +73,7 @@ a{color:var(--accent)}
   <div class="card"><div class="l">Win Rate (closed)</div><div class="v">60% (3W/2L)</div></div>
   <div class="card"><div class="l">Closed Trades</div><div class="v">5</div></div>
   <div class="card"><div class="l">Total Realized $</div><div class="v bad">$-6.09</div></div>
-  <div class="card"><div class="l">Open Orders</div><div class="v">0</div></div>
+  <div class="card"><div class="l">Open Orders</div><div class="v">1</div></div>
 </div>
 
 <h2>Performance charts</h2>
@@ -105,7 +105,7 @@ a{color:var(--accent)}
 <h2>Open Positions</h2>
 <table>
 <thead><tr><th>Symbol</th><th>Qty</th><th>Avg entry</th><th>Last</th><th>Mkt value</th><th>Unrealized P/L</th><th>Side</th></tr></thead>
-<tbody><tr><td colspan="7" class="muted">No open positions</td></tr></tbody>
+<tbody><tr><td><strong>WMT</strong> 🔴▼</td><td>-229.0</td><td>108.94</td><td>108.96</td><td>-24,951.84</td><td class='bad'>-4.58</td><td>SHORT</td></tr></tbody>
 </table>
 
 <h2>Open Orders</h2>
@@ -115,7 +115,7 @@ a{color:var(--accent)}
 <th>Symbol</th><th>Side</th><th>Qty</th><th>Filled</th><th>Type</th>
 <th>Status</th><th>Limit</th><th>Order id</th><th>Submitted</th>
 </tr></thead>
-<tbody><tr><td colspan="9" class="muted">No open orders</td></tr></tbody>
+<tbody><tr><td><strong>WMT</strong></td><td>BUY</td><td>229</td><td>0</td><td>LIMIT</td><td>NEW</td><td>106.22</td><td class='note' title='676e13c7-1985-4277-926a-85f0cb11fd6e'>676e13c7…</td><td>7:36:47 AM PT</td></tr></tbody>
 </table>
 
 
@@ -125,14 +125,14 @@ a{color:var(--accent)}
   <div class="card"><div class="l">Day booked P/L ($)</div><div class="v warn">None yet</div>
   <div class="sub" style="margin:4px 0 0">No closed lots today</div></div>
   <div class="card"><div class="l">Closed trades (grouped)</div><div class="v">5</div>
-  <div class="sub" style="margin:4px 0 0">16 FIFO lots · 21 fills</div></div>
+  <div class="sub" style="margin:4px 0 0">16 FIFO lots · 24 fills</div></div>
   <div class="card"><div class="l">Total realized P/L</div><div class="v bad">$-6.09</div></div>
   <div class="card"><div class="l">Win rate</div><div class="v">60% (3W / 2L)</div></div>
   <div class="card"><div class="l">Avg win / loss</div><div class="v" style="font-size:.95rem">+41.21 / -64.86</div></div>
   <div class="card"><div class="l">Best / worst</div><div class="v" style="font-size:.9rem">AAPL $+99.90 · NVDA $-75.52</div></div>
 </div>
 
-<p class="sub">FIFO-matched 16 lot chunk(s) from 21 fill(s); grouped by PT date + symbol below (partial fills rolled up).</p>
+<p class="sub">FIFO-matched 16 lot chunk(s) from 24 fill(s); grouped by PT date + symbol below (partial fills rolled up).</p>
 <p class="sub">Lots grouped by PT calendar date + symbol (partial fills rolled into one row per ticker/day). Inspired by niratrades.streamlit.app closed-position rollup.</p>
 
 <div class="date-block">
@@ -171,7 +171,7 @@ a{color:var(--accent)}
   <div class="card"><div class="l">Universe / max concurrent</div><div class="v">14 / 4</div></div>
   <div class="card"><div class="l">Day realized R</div><div class="v">+0.00 R</div></div>
   <div class="card"><div class="l">Daily halt</div><div class="v ok">No</div></div>
-  <div class="card"><div class="l">State updated</div><div class="v" style="font-size:.95rem">Thu Sep 24, 6:30 AM PT</div></div>
+  <div class="card"><div class="l">State updated</div><div class="v" style="font-size:.95rem">Thu Sep 24, 7:36 AM PT</div></div>
 </div>
 
 <table>
@@ -179,7 +179,7 @@ a{color:var(--accent)}
 <th>Symbol</th><th>Status</th><th>Traded</th><th>Side</th>
 <th>OR high</th><th>OR low</th><th>OR mid (stop)</th><th>Note</th>
 </tr></thead>
-<tbody><tr><td><strong>NVDA</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>228.95</td><td>225.02</td><td>226.99</td><td class='note'>last_session_only (2026-09-23); today=2026-09-24 OR not ready · no live arm</td></tr><tr><td><strong>TSLA</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>386.70</td><td>378.78</td><td>382.74</td><td class='note'>last_session_only (2026-09-23); today=2026-09-24 OR not ready · no live arm</td></tr><tr><td><strong>INTC</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>124.25</td><td>119.63</td><td>121.94</td><td class='note'>last_session_only (2026-09-23); today=2026-09-24 OR not ready · no live arm</td></tr><tr><td><strong>PLTR</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>193.37</td><td>182.95</td><td>188.16</td><td class='note'>last_session_only (2026-09-23); today=2026-09-24 OR not ready · no live arm</td></tr><tr><td><strong>AMD</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>624.69</td><td>608.09</td><td>616.39</td><td class='note'>last_session_only (2026-09-23); today=2026-09-24 OR not ready · no live arm</td></tr><tr><td><strong>AAPL</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>341.80</td><td>336.41</td><td>339.11</td><td class='note'>last_session_only (2026-09-23); today=2026-09-24 OR not ready · no live arm</td></tr><tr><td><strong>AMZN</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>253.81</td><td>248.19</td><td>251.00</td><td class='note'>last_session_only (2026-09-23); today=2026-09-24 OR not ready · no live arm</td></tr><tr><td><strong>GOOGL</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>350.00</td><td>340.13</td><td>345.07</td><td class='note'>last_session_only (2026-09-23); today=2026-09-24 OR not ready · no live arm</td></tr><tr><td><strong>MU</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>1,105.50</td><td>1,070.52</td><td>1,088.01</td><td class='note'>last_session_only (2026-09-23); today=2026-09-24 OR not ready · no live arm</td></tr><tr><td><strong>MSFT</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>509.44</td><td>495.90</td><td>502.67</td><td class='note'>last_session_only (2026-09-23); today=2026-09-24 OR not ready · no live arm</td></tr><tr><td><strong>META</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>763.90</td><td>739.51</td><td>751.71</td><td class='note'>last_session_only (2026-09-23); today=2026-09-24 OR not ready · no live arm</td></tr><tr><td><strong>AVGO</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>362.90</td><td>355.15</td><td>359.03</td><td class='note'>last_session_only (2026-09-23); today=2026-09-24 OR not ready · no live arm</td></tr><tr><td><strong>WMT</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>111.23</td><td>110.10</td><td>110.67</td><td class='note'>last_session_only (2026-09-23); today=2026-09-24 OR not ready · no live arm</td></tr><tr><td><strong>CSCO</strong></td><td>awaiting today or</td><td>No</td><td>—</td><td>106.87</td><td>105.95</td><td>106.41</td><td class='note'>last_session_only (2026-09-23); today=2026-09-24 OR not ready · no live arm</td></tr></tbody>
+<tbody><tr><td><strong>NVDA</strong></td><td>watching</td><td>No</td><td>—</td><td>223.23</td><td>221.09</td><td>222.16</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>TSLA</strong></td><td>watching</td><td>No</td><td>—</td><td>379.94</td><td>376.26</td><td>378.10</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>INTC</strong></td><td>skip invalid or</td><td>No</td><td>—</td><td>125.92</td><td>119.95</td><td>122.94</td><td class='note'>skip invalid OR (range_too_large)</td></tr><tr><td><strong>PLTR</strong></td><td>watching</td><td>No</td><td>—</td><td>192.76</td><td>188.24</td><td>190.50</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>AMD</strong></td><td>skip invalid or</td><td>No</td><td>—</td><td>624.84</td><td>604.35</td><td>614.60</td><td class='note'>skip invalid OR (range_too_large)</td></tr><tr><td><strong>AAPL</strong></td><td>watching</td><td>No</td><td>—</td><td>338.26</td><td>334.30</td><td>336.28</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>AMZN</strong></td><td>watching</td><td>No</td><td>—</td><td>247.52</td><td>245.60</td><td>246.56</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>GOOGL</strong></td><td>watching</td><td>No</td><td>—</td><td>339.80</td><td>336.02</td><td>337.91</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>MU</strong></td><td>watching</td><td>No</td><td>—</td><td>1,060.84</td><td>1,044.00</td><td>1,052.42</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>MSFT</strong></td><td>watching</td><td>No</td><td>—</td><td>495.63</td><td>491.22</td><td>493.43</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>META</strong></td><td>skip invalid or</td><td>No</td><td>—</td><td>768.65</td><td>747.69</td><td>758.17</td><td class='note'>skip invalid OR (range_too_large)</td></tr><tr><td><strong>AVGO</strong></td><td>watching</td><td>No</td><td>—</td><td>349.69</td><td>347.39</td><td>348.54</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>WMT</strong></td><td>entered</td><td>Yes</td><td>short</td><td>111.17</td><td>108.97</td><td>110.07</td><td class='note'>submitted bracket 40561fb0-8c34-466e-b124-8287c339ea2f</td></tr><tr><td><strong>CSCO</strong></td><td>watching</td><td>No</td><td>—</td><td>106.55</td><td>105.06</td><td>105.81</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr></tbody>
 </table>
 
 
