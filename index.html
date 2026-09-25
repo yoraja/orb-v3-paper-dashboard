@@ -56,7 +56,7 @@ a{color:var(--accent)}
 <body>
 <div class="wrap">
 <h1>ORB v3 — Paper Dashboard <span class="badge">PAPER</span></h1>
-<p class="sub">Alpaca paper · All times PT · Auto-refresh 60s · Last build: Fri Sep 25, 2026 9:40 AM PT · Layout inspired by <a href="https://niratrades.streamlit.app/">niratrades</a></p>
+<p class="sub">Alpaca paper · All times PT · Auto-refresh 60s · Last build: Fri Sep 25, 2026 9:55 AM PT · Layout inspired by <a href="https://niratrades.streamlit.app/">niratrades</a></p>
 <p class='ok'>Connected to Alpaca paper</p>
 
 <div class="cards">
@@ -134,6 +134,7 @@ a{color:var(--accent)}
 
 <p class="sub">FIFO-matched 26 lot chunk(s) from 34 fill(s); grouped by PT date + symbol below (partial fills rolled up).</p>
 <p class="sub">Lots grouped by PT calendar date + symbol (partial fills rolled into one row per ticker/day). Inspired by niratrades.streamlit.app closed-position rollup.</p>
+<p class="sub">% fund utilized = entry notional ÷ portfolio equity at last refresh.</p>
 
 <div class="date-block">
   <div class="date-head">
@@ -142,10 +143,10 @@ a{color:var(--accent)}
   </div>
   <table>
   <thead><tr>
-  <th>Ticker</th><th>Side</th><th>Qty</th><th>Entry avg</th><th>Exit avg</th>
-  <th>Realized $</th><th>P/L %</th><th>Result</th><th>Hold / fills</th>
+  <th>Ticker</th><th>Side</th><th>Qty</th><th>Entry avg</th><th>Entry $</th>
+  <th>% fund utilized</th><th>Exit avg</th><th>Realized $</th><th>P/L %</th><th>Result</th><th>Hold / fills</th>
   </tr></thead>
-  <tbody><tr><td><strong>AAPL</strong> 🟢▲ <span class='tag'>📊 3× lots</span></td><td>LONG</td><td>74</td><td>337.36</td><td>339.72</td><td class='ok'>+174.61</td><td class='ok'>+0.70%</td><td>Win</td><td class='note'>0.8h · 2 orders</td></tr></tbody>
+  <tbody><tr><td><strong>AAPL</strong> 🟢▲ <span class='tag'>📊 3× lots</span></td><td>LONG</td><td>74</td><td>337.36</td><td>$24,964.67</td><td>49.5%</td><td>339.72</td><td class='ok'>+174.61</td><td class='ok'>+0.70%</td><td>Win</td><td class='note'>0.8h · 2 orders</td></tr></tbody>
   </table>
 </div>
 
@@ -156,10 +157,10 @@ a{color:var(--accent)}
   </div>
   <table>
   <thead><tr>
-  <th>Ticker</th><th>Side</th><th>Qty</th><th>Entry avg</th><th>Exit avg</th>
-  <th>Realized $</th><th>P/L %</th><th>Result</th><th>Hold / fills</th>
+  <th>Ticker</th><th>Side</th><th>Qty</th><th>Entry avg</th><th>Entry $</th>
+  <th>% fund utilized</th><th>Exit avg</th><th>Realized $</th><th>P/L %</th><th>Result</th><th>Hold / fills</th>
   </tr></thead>
-  <tbody><tr><td><strong>WMT</strong> 🟢▲ <span class='tag'>📊 7× lots</span></td><td>SHORT</td><td>229</td><td>108.94</td><td>107.83</td><td class='ok'>+253.96</td><td class='ok'>+1.02%</td><td>Win</td><td class='note'>5.3h · 2 orders</td></tr></tbody>
+  <tbody><tr><td><strong>WMT</strong> 🟢▲ <span class='tag'>📊 7× lots</span></td><td>SHORT</td><td>229</td><td>108.94</td><td>$24,947.26</td><td>49.5%</td><td>107.83</td><td class='ok'>+253.96</td><td class='ok'>+1.02%</td><td>Win</td><td class='note'>5.3h · 2 orders</td></tr></tbody>
   </table>
 </div>
 
@@ -170,10 +171,10 @@ a{color:var(--accent)}
   </div>
   <table>
   <thead><tr>
-  <th>Ticker</th><th>Side</th><th>Qty</th><th>Entry avg</th><th>Exit avg</th>
-  <th>Realized $</th><th>P/L %</th><th>Result</th><th>Hold / fills</th>
+  <th>Ticker</th><th>Side</th><th>Qty</th><th>Entry avg</th><th>Entry $</th>
+  <th>% fund utilized</th><th>Exit avg</th><th>Realized $</th><th>P/L %</th><th>Result</th><th>Hold / fills</th>
   </tr></thead>
-  <tbody><tr><td><strong>AAPL</strong> 🟢▲</td><td>SHORT</td><td>74</td><td>337.57</td><td>336.22</td><td class='ok'>+99.90</td><td class='ok'>+0.40%</td><td>Win</td><td class='note'>2.5h · 2 orders</td></tr><tr><td><strong>AVGO</strong> 🟢▲ <span class='tag'>📊 2× lots</span></td><td>SHORT</td><td>70</td><td>354.99</td><td>354.78</td><td class='ok'>+14.70</td><td class='ok'>+0.06%</td><td>Win</td><td class='note'>2.5h · 2 orders</td></tr><tr><td><strong>NVDA</strong> 🔴▼ <span class='tag'>📊 5× lots</span></td><td>SHORT</td><td>110</td><td>224.58</td><td>225.07</td><td class='bad'>-54.21</td><td class='bad'>-0.22%</td><td>Loss</td><td class='note'>2.5h · 2 orders</td></tr><tr><td><strong>WMT</strong> 🟢▲ <span class='tag'>📊 3× lots</span></td><td>SHORT</td><td>226</td><td>110.47</td><td>110.43</td><td class='ok'>+9.04</td><td class='ok'>+0.04%</td><td>Win</td><td class='note'>2.5h · 2 orders</td></tr></tbody>
+  <tbody><tr><td><strong>AAPL</strong> 🟢▲</td><td>SHORT</td><td>74</td><td>337.57</td><td>$24,980.18</td><td>49.5%</td><td>336.22</td><td class='ok'>+99.90</td><td class='ok'>+0.40%</td><td>Win</td><td class='note'>2.5h · 2 orders</td></tr><tr><td><strong>AVGO</strong> 🟢▲ <span class='tag'>📊 2× lots</span></td><td>SHORT</td><td>70</td><td>354.99</td><td>$24,849.30</td><td>49.3%</td><td>354.78</td><td class='ok'>+14.70</td><td class='ok'>+0.06%</td><td>Win</td><td class='note'>2.5h · 2 orders</td></tr><tr><td><strong>NVDA</strong> 🔴▼ <span class='tag'>📊 5× lots</span></td><td>SHORT</td><td>110</td><td>224.58</td><td>$24,703.84</td><td>49.0%</td><td>225.07</td><td class='bad'>-54.21</td><td class='bad'>-0.22%</td><td>Loss</td><td class='note'>2.5h · 2 orders</td></tr><tr><td><strong>WMT</strong> 🟢▲ <span class='tag'>📊 3× lots</span></td><td>SHORT</td><td>226</td><td>110.47</td><td>$24,966.22</td><td>49.5%</td><td>110.43</td><td class='ok'>+9.04</td><td class='ok'>+0.04%</td><td>Win</td><td class='note'>2.5h · 2 orders</td></tr></tbody>
   </table>
 </div>
 
@@ -184,10 +185,10 @@ a{color:var(--accent)}
   </div>
   <table>
   <thead><tr>
-  <th>Ticker</th><th>Side</th><th>Qty</th><th>Entry avg</th><th>Exit avg</th>
-  <th>Realized $</th><th>P/L %</th><th>Result</th><th>Hold / fills</th>
+  <th>Ticker</th><th>Side</th><th>Qty</th><th>Entry avg</th><th>Entry $</th>
+  <th>% fund utilized</th><th>Exit avg</th><th>Realized $</th><th>P/L %</th><th>Result</th><th>Hold / fills</th>
   </tr></thead>
-  <tbody><tr><td><strong>NVDA</strong> 🔴▼ <span class='tag'>📊 5× lots</span></td><td>LONG</td><td>236</td><td>211.82</td><td>211.50</td><td class='bad'>-75.52</td><td class='bad'>-0.15%</td><td>Loss</td><td class='note'>4.3h · 2 orders</td></tr></tbody>
+  <tbody><tr><td><strong>NVDA</strong> 🔴▼ <span class='tag'>📊 5× lots</span></td><td>LONG</td><td>236</td><td>211.82</td><td>$49,989.52</td><td>99.1%</td><td>211.50</td><td class='bad'>-75.52</td><td class='bad'>-0.15%</td><td>Loss</td><td class='note'>4.3h · 2 orders</td></tr></tbody>
   </table>
 </div>
 
@@ -199,7 +200,7 @@ a{color:var(--accent)}
   <div class="card"><div class="l">Universe / max concurrent</div><div class="v">14 / 4</div></div>
   <div class="card"><div class="l">Day realized R</div><div class="v">+0.00 R</div></div>
   <div class="card"><div class="l">Daily halt</div><div class="v ok">No</div></div>
-  <div class="card"><div class="l">State updated</div><div class="v" style="font-size:.95rem">Fri Sep 25, 9:32 AM PT</div></div>
+  <div class="card"><div class="l">State updated</div><div class="v" style="font-size:.95rem">Fri Sep 25, 9:41 AM PT</div></div>
 </div>
 
 <table>
