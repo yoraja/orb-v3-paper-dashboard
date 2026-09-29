@@ -64,9 +64,9 @@ th{color:var(--muted);font-size:.72rem;font-weight:600;text-transform:uppercase;
 </div>
 
 <h1>ORB v3 — How this strategy works <span class="badge badge-live">LIVE · REAL MONEY</span></h1>
-<p class="sub">DAILY_ORB_v3 · rules version <strong>3.1.0</strong> · Document last updated: <strong>Fri Sep 25, 2026 12:26 PM PT</strong></p>
+<p class="sub">DAILY_ORB_v3 (LIVE NDX-14) + PAPER NDX-100 experiment · Document last updated: <strong>Tue Sep 29, 2026 12:41 PM PT</strong></p>
 
-<p class="live-banner">This bot trades the Alpaca LIVE account with real money. Cash-only. Flat by end of day — no overnight holds.</p>
+<p class="live-banner">Dual track: <strong>LIVE</strong> trades Alpaca LIVE on NDX-14 (real money). <strong>PAPER</strong> runs a parallel Nasdaq-100 ORB experiment on Alpaca paper. Cash-only both. Flat by end of day — no overnight holds. Do not promote NDX-100 to LIVE until paper outperforms and you approve.</p>
 
 <div class="disclaimer">
   <strong>Not financial advice.</strong> This page explains how Yogesh’s automated ORB v3 system is configured to run.
@@ -95,9 +95,9 @@ th{color:var(--muted);font-size:.72rem;font-weight:600;text-transform:uppercase;
 </p>
 
 <div class="cards">
-  <div class="card"><div class="l">Strategy id</div><div class="v">DAILY_ORB_v3</div></div>
-  <div class="card"><div class="l">Rules version</div><div class="v">3.1.0</div></div>
-  <div class="card"><div class="l">Broker</div><div class="v">Alpaca LIVE</div></div>
+  <div class="card"><div class="l">LIVE</div><div class="v">NDX-14 · DAILY_ORB_v3</div></div>
+  <div class="card"><div class="l">PAPER experiment</div><div class="v">NDX-100 · same ORB v3</div></div>
+  <div class="card"><div class="l">Rules</div><div class="v">3.1.0 / paper-ndx100</div></div>
   <div class="card"><div class="l">Overnight</div><div class="v bad">Never</div></div>
 </div>
 
@@ -121,12 +121,19 @@ th{color:var(--muted);font-size:.72rem;font-weight:600;text-transform:uppercase;
 </p>
 
 <h2 id="universe">How stocks are identified (universe)</h2>
-<p>
-  The bot does <strong>not</strong> scan all of Nasdaq live. It uses a fixed <strong>NDX liquid-14</strong> list from the rules file:
-</p>
+<p><strong>Dual track</strong> — LIVE stays on a curated liquid-14; PAPER scans the full Nasdaq-100 with the same ORB v3 mechanics.</p>
+<table>
+<thead><tr><th>Track</th><th>Universe</th><th>Rules file</th><th>State</th></tr></thead>
+<tbody>
+<tr><td><strong>LIVE</strong></td><td>NDX-14</td><td><code>rules_daily_v3.json</code></td><td><code>orb_v3_live_state.json</code></td></tr>
+<tr><td><strong>PAPER</strong></td><td>Nasdaq-100 (~101, GOOG+GOOGL)</td><td><code>rules_daily_v3_ndx100_paper.json</code></td><td><code>orb_v3_paper_state.json</code></td></tr>
+</tbody>
+</table>
+<p><strong>LIVE NDX-14:</strong></p>
 <div class="card">
   <strong>NVDA · TSLA · INTC · PLTR · AMD · AAPL · AMZN · GOOGL · MU · MSFT · META · AVGO · WMT · CSCO</strong>
 </div>
+<p class="sub">PAPER runner: <code>python -m paper_broker.run_orb_v3_paper --universe ndx100 …</code> (never with <code>--live</code>). Promote NDX-100 to LIVE only after paper outperforms + explicit approval.</p>
 <table>
 <thead><tr><th>Filter</th><th>Rule</th></tr></thead>
 <tbody>
@@ -159,17 +166,19 @@ th{color:var(--muted);font-size:.72rem;font-weight:600;text-transform:uppercase;
 
 <h3>Scanner cadence</h3>
 <p>
-  Weekday Grok Bot LIVE routines poll about every <strong>15 minutes</strong>
+  Weekday Grok Bot routines poll about every <strong>15 minutes</strong>
   (cron minutes <strong>7, 22, 37, 52</strong>) in the <strong>6:00 AM – ~12:00 PM PT</strong> window,
-  then manage toward flatten near the close.
+  then manage toward flatten near the close. <strong>LIVE</strong> and <strong>PAPER</strong> use <em>separate</em> routines.
+  LIVE chat heartbeats are mandatory; PAPER chat notes prefer arms/fills only (lighter).
+  Slack <code>#grok-trades</code> is actionable-only for both — label <strong>LIVE</strong> or <strong>PAPER</strong>.
 </p>
 
 <h3>Orders, state, sizing</h3>
 <ul>
   <li>Places an Alpaca <strong>bracket</strong> (or equivalent): entry + stop + take-profit</li>
-  <li>LIVE state file: <code>orb_v3_live_state.json</code></li>
-  <li>Secrets from YOPC <code>live-secrets.json</code> (synced to the box — never paste keys)</li>
-  <li><strong>Cash-only</strong>; max <strong>50%</strong> equity notional per symbol</li>
+  <li>LIVE state: <code>orb_v3_live_state.json</code> · PAPER state: <code>orb_v3_paper_state.json</code> (never mixed)</li>
+  <li>LIVE secrets: YOPC <code>live-secrets.json</code> · PAPER secrets: YOPC <code>paper-secrets.json</code> (never paste keys; paper never falls back to live)</li>
+  <li><strong>Cash-only</strong>; max <strong>50%</strong> equity notional per symbol; max <strong>4</strong> concurrent</li>
   <li>Risk <strong>1.5%</strong> of equity per trade → shares ≈ <code>risk $ / R</code></li>
 </ul>
 
@@ -222,8 +231,9 @@ Stop = 118.00 (above entry)</div>
 
 <h2 id="source">Source of truth</h2>
 <ul>
-  <li>Canonical rules: <code>daily/docs/rules_daily_v3.json</code></li>
-  <li>Ops: <code>ORB_V3_OPS_GUIDE.md</code>, <code>ALPACA_ORB_V3_PAPER.md</code>, <code>ORB_V3_LIVE_ROUTINE_PROMPTS.md</code></li>
+  <li>LIVE rules (NDX-14): <code>daily/docs/rules_daily_v3.json</code></li>
+  <li>PAPER rules (NDX-100): <code>daily/docs/rules_daily_v3_ndx100_paper.json</code></li>
+  <li>Ops: <code>ORB_V3_OPS_GUIDE.md</code>, <code>ALPACA_ORB_V3_PAPER.md</code>, <code>ORB_V3_LIVE_ROUTINE_PROMPTS.md</code>, <code>ORB_V3_PAPER_ROUTINE_PROMPTS.md</code></li>
   <li>Markdown source for this page: <code>daily/docs/ORB_V3_STRATEGY_EXPLAINER.md</code></li>
 </ul>
 <p class="sub">
@@ -233,7 +243,7 @@ Stop = 118.00 (above entry)</div>
 
 <div class="footer">
   <p><a href="./">← Back to LIVE dashboard</a></p>
-  <p>ORB v3 strategy explainer · version 3.1.0 · Last updated Fri Sep 25, 2026 12:26 PM PT · Not financial advice</p>
+  <p>ORB v3 strategy explainer · dual track LIVE NDX-14 + PAPER NDX-100 · Last updated Tue Sep 29, 2026 12:41 PM PT · Not financial advice</p>
 </div>
 </div>
 </body>
