@@ -61,18 +61,18 @@ a{color:var(--accent)}
 <body>
 <div class="wrap">
 <h1>ORB v3 — LIVE TRADING · NDX-14 Dashboard <span class="badge badge-live">LIVE · REAL MONEY</span></h1>
-<p class="sub">Alpaca LIVE · All times PT · Auto-refresh 60s · Last build: Fri Oct 2, 2026 8:32 AM PT · Closed lots since: 2026-09-25 12:00 PDT · Layout inspired by <a href="https://niratrades.streamlit.app/">niratrades</a></p>
+<p class="sub">Alpaca LIVE · All times PT · Auto-refresh 60s · Last build: Fri Oct 2, 2026 8:33 AM PT · Closed lots since: 2026-09-25 12:00 PDT · Layout inspired by <a href="https://niratrades.streamlit.app/">niratrades</a></p>
 <p class="sub" style="margin-top:-8px"><a href="strategy.html"><strong>How this strategy works →</strong></a> · Explainer covers <strong>PAPER NDX-100</strong> vs <strong>LIVE NDX-14</strong></p>
 <p class='live-banner'>LIVE account (NDX-14) — closed positions show only ORB bot fills after go-live (2026-09-25 12:00 PDT). Pre-bot live history and paper lots are excluded. Paper dashboard: <a href='https://yoraja.github.io/orb-v3-paper-ndx100-dashboard/'>https://yoraja.github.io/orb-v3-paper-ndx100-dashboard/</a></p>
 <p class='ok'>Connected to Alpaca LIVE</p>
 
 <div class="cards">
-  <div class="card"><div class="l">Portfolio Equity</div><div class="v">49,496.84</div></div>
-  <div class="card"><div class="l">Cash Available</div><div class="v">72,715.50</div></div>
-  <div class="card"><div class="l">Buying Power</div><div class="v">110,731.07</div></div>
+  <div class="card"><div class="l">Portfolio Equity</div><div class="v">49,493.35</div></div>
+  <div class="card"><div class="l">Cash Available</div><div class="v">97,459.71</div></div>
+  <div class="card"><div class="l">Buying Power</div><div class="v">81,006.54</div></div>
   <div class="card"><div class="l">Day Booked P/L</div><div class="v bad">$-159.09</div></div>
-  <div class="card"><div class="l">Unrealized P/L</div><div class="v ok">+303.17</div></div>
-  <div class="card"><div class="l">Open Positions</div><div class="v">3</div></div>
+  <div class="card"><div class="l">Unrealized P/L</div><div class="v ok">+300.19</div></div>
+  <div class="card"><div class="l">Open Positions</div><div class="v">4</div></div>
 </div>
 <div class="cards">
   <div class="card"><div class="l">Account</div><div class="v">ACTIVE</div></div>
@@ -80,7 +80,7 @@ a{color:var(--accent)}
   <div class="card"><div class="l">Win Rate (closed)</div><div class="v">33% (4W/8L)</div></div>
   <div class="card"><div class="l">Closed Trades</div><div class="v">12</div></div>
   <div class="card"><div class="l">Total Realized $</div><div class="v bad">$-1,205.55</div></div>
-  <div class="card"><div class="l">Open Orders</div><div class="v">3</div></div>
+  <div class="card"><div class="l">Open Orders</div><div class="v">4</div></div>
 </div>
 
 <h2>Performance charts</h2>
@@ -112,7 +112,7 @@ a{color:var(--accent)}
 <h2>Open Positions</h2>
 <table>
 <thead><tr><th>Symbol</th><th>Qty</th><th>Avg entry</th><th>Last</th><th>Mkt value</th><th>Unrealized P/L</th><th>Side</th></tr></thead>
-<tbody><tr><td><strong>CSCO</strong> 🟢▲</td><td>222.0</td><td>111.24</td><td>111.47</td><td>24,747.45</td><td class='ok'>+52.17</td><td>LONG</td></tr><tr><td><strong>INTC</strong> 🟢▲</td><td>-199.0</td><td>122.89</td><td>122.22</td><td>-24,321.78</td><td class='ok'>+132.61</td><td>SHORT</td></tr><tr><td><strong>MU</strong> 🟢▲</td><td>-22.0</td><td>1,080.12</td><td>1,074.74</td><td>-23,644.33</td><td class='ok'>+118.38</td><td>SHORT</td></tr></tbody>
+<tbody><tr><td><strong>CSCO</strong> 🟢▲</td><td>222.0</td><td>111.24</td><td>111.50</td><td>24,753.00</td><td class='ok'>+57.72</td><td>LONG</td></tr><tr><td><strong>INTC</strong> 🟢▲</td><td>-199.0</td><td>122.89</td><td>122.23</td><td>-24,324.76</td><td class='ok'>+129.63</td><td>SHORT</td></tr><tr><td><strong>MSFT</strong> 🔴▼</td><td>-48.0</td><td>515.51</td><td>515.65</td><td>-24,751.20</td><td class='bad'>-6.48</td><td>SHORT</td></tr><tr><td><strong>MU</strong> 🟢▲</td><td>-22.0</td><td>1,080.12</td><td>1,074.70</td><td>-23,643.40</td><td class='ok'>+119.32</td><td>SHORT</td></tr></tbody>
 </table>
 
 <h2>Open Orders</h2>
@@ -122,7 +122,7 @@ a{color:var(--accent)}
 <th>Symbol</th><th>Side</th><th>Qty</th><th>Filled</th><th>Type</th>
 <th>Status</th><th>Limit</th><th>Order id</th><th>Submitted</th>
 </tr></thead>
-<tbody><tr><td><strong>MU</strong></td><td>BUY</td><td>22</td><td>0</td><td>LIMIT</td><td>NEW</td><td>1,050.50</td><td class='note' title='37bedf95-4710-469c-91fe-d9cc7d7fd031'>37bedf95…</td><td>8:13:56 AM PT</td></tr><tr><td><strong>INTC</strong></td><td>BUY</td><td>199</td><td>0</td><td>LIMIT</td><td>NEW</td><td>119.41</td><td class='note' title='f4b4aa21-91f4-49d8-a55f-77f3e2d93360'>f4b4aa21…</td><td>8:13:56 AM PT</td></tr><tr><td><strong>CSCO</strong></td><td>SELL</td><td>222</td><td>0</td><td>LIMIT</td><td>NEW</td><td>113.24</td><td class='note' title='304fa32b-b22b-4bd6-bf6a-497dfaa502d1'>304fa32b…</td><td>7:46:11 AM PT</td></tr></tbody>
+<tbody><tr><td><strong>MSFT</strong></td><td>BUY</td><td>48</td><td>0</td><td>LIMIT</td><td>NEW</td><td>506.64</td><td class='note' title='d56536b5-d289-4232-b260-bc8f139f9ed4'>d56536b5…</td><td>8:33:24 AM PT</td></tr><tr><td><strong>MU</strong></td><td>BUY</td><td>22</td><td>0</td><td>LIMIT</td><td>NEW</td><td>1,050.50</td><td class='note' title='37bedf95-4710-469c-91fe-d9cc7d7fd031'>37bedf95…</td><td>8:13:56 AM PT</td></tr><tr><td><strong>INTC</strong></td><td>BUY</td><td>199</td><td>0</td><td>LIMIT</td><td>NEW</td><td>119.41</td><td class='note' title='f4b4aa21-91f4-49d8-a55f-77f3e2d93360'>f4b4aa21…</td><td>8:13:56 AM PT</td></tr><tr><td><strong>CSCO</strong></td><td>SELL</td><td>222</td><td>0</td><td>LIMIT</td><td>NEW</td><td>113.24</td><td class='note' title='304fa32b-b22b-4bd6-bf6a-497dfaa502d1'>304fa32b…</td><td>7:46:11 AM PT</td></tr></tbody>
 </table>
 
 
@@ -132,14 +132,14 @@ a{color:var(--accent)}
   <div class="card"><div class="l">Day booked P/L ($)</div><div class="v bad">$-159.09</div>
   <div class="sub" style="margin:4px 0 0">Today booked $</div></div>
   <div class="card"><div class="l">Closed trades (grouped)</div><div class="v">12</div>
-  <div class="sub" style="margin:4px 0 0">14 FIFO lots · 29 fills</div></div>
+  <div class="sub" style="margin:4px 0 0">14 FIFO lots · 30 fills</div></div>
   <div class="card"><div class="l">Total realized P/L</div><div class="v bad">$-1,205.55</div></div>
   <div class="card"><div class="l">Win rate</div><div class="v">33% (4W / 8L)</div></div>
   <div class="card"><div class="l">Avg win / loss</div><div class="v" style="font-size:.95rem">+131.66 / -216.52</div></div>
   <div class="card"><div class="l">Best / worst</div><div class="v" style="font-size:.9rem">WMT $+225.70 · AMZN $-307.52</div></div>
 </div>
 
-<p class="sub">FIFO-matched 14 lot chunk(s) from 29 fill(s); grouped by PT date + symbol below (partial fills rolled up). Closed-since filter: 2026-09-25 12:00 PDT (LIVE-bot lots only; pre-bot live history excluded).</p>
+<p class="sub">FIFO-matched 14 lot chunk(s) from 30 fill(s); grouped by PT date + symbol below (partial fills rolled up). Closed-since filter: 2026-09-25 12:00 PDT (LIVE-bot lots only; pre-bot live history excluded).</p>
 <p class="sub">Lots grouped by PT calendar date + symbol (partial fills rolled into one row per ticker/day). Inspired by niratrades.streamlit.app closed-position rollup.</p>
 <p class="sub">% fund utilized = entry notional ÷ portfolio equity at last refresh.</p>
 
@@ -193,7 +193,7 @@ a{color:var(--accent)}
   <div class="card"><div class="l">Universe / max concurrent</div><div class="v">14 / 4</div></div>
   <div class="card"><div class="l">Day realized R</div><div class="v">+0.00 R</div></div>
   <div class="card"><div class="l">Daily halt</div><div class="v ok">No</div></div>
-  <div class="card"><div class="l">State updated</div><div class="v" style="font-size:.95rem">Fri Oct 2, 8:13 AM PT</div></div>
+  <div class="card"><div class="l">State updated</div><div class="v" style="font-size:.95rem">Fri Oct 2, 8:33 AM PT</div></div>
 </div>
 
 <table>
@@ -201,7 +201,7 @@ a{color:var(--accent)}
 <th>Symbol</th><th>Status</th><th>Traded</th><th>Side</th>
 <th>OR high</th><th>OR low</th><th>OR mid (stop)</th><th>Note</th>
 </tr></thead>
-<tbody><tr><td><strong>NVDA</strong></td><td>watching</td><td>No</td><td>—</td><td>237.87</td><td>234.53</td><td>236.20</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>TSLA</strong></td><td>skip invalid or</td><td>No</td><td>—</td><td>374.36</td><td>359.41</td><td>366.89</td><td class='note'>skip invalid OR (range_too_large)</td></tr><tr><td><strong>INTC</strong></td><td>entered</td><td>Yes</td><td>short</td><td>126.00</td><td>123.07</td><td>124.53</td><td class='note'>submitted bracket 54e1eae1-b5e1-4193-9fbd-149d93464674</td></tr><tr><td><strong>PLTR</strong></td><td>watching</td><td>No</td><td>—</td><td>194.78</td><td>190.60</td><td>192.69</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>AMD</strong></td><td>watching</td><td>No</td><td>—</td><td>645.46</td><td>630.76</td><td>638.11</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>AAPL</strong></td><td>watching</td><td>No</td><td>—</td><td>334.54</td><td>330.61</td><td>332.57</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>AMZN</strong></td><td>watching</td><td>No</td><td>—</td><td>253.56</td><td>250.72</td><td>252.14</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>GOOGL</strong></td><td>entered</td><td>Yes</td><td>long</td><td>345.29</td><td>341.16</td><td>343.23</td><td class='note'>submitted bracket 780fcffe-1365-4909-9be6-de6d7da04c60</td></tr><tr><td><strong>MU</strong></td><td>entered</td><td>Yes</td><td>short</td><td>1,107.87</td><td>1,082.37</td><td>1,095.12</td><td class='note'>submitted bracket dc3a4c10-8c87-4210-9948-4aa8ccb4beed</td></tr><tr><td><strong>MSFT</strong></td><td>skip concurrent</td><td>No</td><td>—</td><td>522.50</td><td>515.45</td><td>518.98</td><td class='note'>skip_concurrent · book full (4/4 open; OR-volume priority deferred this scan)</td></tr><tr><td><strong>META</strong></td><td>watching</td><td>No</td><td>—</td><td>741.58</td><td>727.49</td><td>734.54</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>AVGO</strong></td><td>skip invalid or</td><td>No</td><td>—</td><td>356.61</td><td>347.42</td><td>352.01</td><td class='note'>skip invalid OR (range_too_large)</td></tr><tr><td><strong>WMT</strong></td><td>watching</td><td>No</td><td>—</td><td>105.14</td><td>103.81</td><td>104.47</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>CSCO</strong></td><td>entered</td><td>Yes</td><td>long</td><td>110.90</td><td>109.02</td><td>109.96</td><td class='note'>submitted bracket a28e5b95-8ff7-4ffa-814d-61eeb803f963</td></tr></tbody>
+<tbody><tr><td><strong>NVDA</strong></td><td>watching</td><td>No</td><td>—</td><td>237.87</td><td>234.53</td><td>236.20</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>TSLA</strong></td><td>skip invalid or</td><td>No</td><td>—</td><td>374.36</td><td>359.41</td><td>366.89</td><td class='note'>skip invalid OR (range_too_large)</td></tr><tr><td><strong>INTC</strong></td><td>entered</td><td>Yes</td><td>short</td><td>126.00</td><td>123.07</td><td>124.53</td><td class='note'>submitted bracket 54e1eae1-b5e1-4193-9fbd-149d93464674</td></tr><tr><td><strong>PLTR</strong></td><td>watching</td><td>No</td><td>—</td><td>194.78</td><td>190.60</td><td>192.69</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>AMD</strong></td><td>watching</td><td>No</td><td>—</td><td>645.46</td><td>630.76</td><td>638.11</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>AAPL</strong></td><td>watching</td><td>No</td><td>—</td><td>334.54</td><td>330.61</td><td>332.57</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>AMZN</strong></td><td>watching</td><td>No</td><td>—</td><td>253.56</td><td>250.72</td><td>252.14</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>GOOGL</strong></td><td>entered</td><td>Yes</td><td>long</td><td>345.29</td><td>341.16</td><td>343.23</td><td class='note'>submitted bracket 780fcffe-1365-4909-9be6-de6d7da04c60</td></tr><tr><td><strong>MU</strong></td><td>entered</td><td>Yes</td><td>short</td><td>1,107.87</td><td>1,082.37</td><td>1,095.12</td><td class='note'>submitted bracket dc3a4c10-8c87-4210-9948-4aa8ccb4beed</td></tr><tr><td><strong>MSFT</strong></td><td>entered</td><td>Yes</td><td>short</td><td>522.50</td><td>515.45</td><td>518.98</td><td class='note'>submitted bracket 778e4e39-0905-4097-a8a4-cc21eaeae7cc</td></tr><tr><td><strong>META</strong></td><td>watching</td><td>No</td><td>—</td><td>741.58</td><td>727.49</td><td>734.54</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>AVGO</strong></td><td>skip invalid or</td><td>No</td><td>—</td><td>356.61</td><td>347.42</td><td>352.01</td><td class='note'>skip invalid OR (range_too_large)</td></tr><tr><td><strong>WMT</strong></td><td>watching</td><td>No</td><td>—</td><td>105.14</td><td>103.81</td><td>104.47</td><td class='note'>watch · no valid breakout on latest bars; no resting stop-entry placed</td></tr><tr><td><strong>CSCO</strong></td><td>entered</td><td>Yes</td><td>long</td><td>110.90</td><td>109.02</td><td>109.96</td><td class='note'>submitted bracket a28e5b95-8ff7-4ffa-814d-61eeb803f963</td></tr></tbody>
 </table>
 
 
